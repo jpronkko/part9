@@ -1,0 +1,94 @@
+###
+GET http://localhost:3001/api/ping
+
+###
+GET http://localhost:3001/api/patients
+
+###
+GET http://localhost:3001/api/patients/abc
+
+###
+GET http://localhost:3001/api/diagnoses
+
+###
+GET http://localhost:3001/api/patients/d2773336-f723-11e9-8f0b-362b9e155667
+
+###
+POST http://localhost:3001/api/patients HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Aila Kaila",
+    "occupation": "Musician",
+    "gender": "female",
+    "ssn": "761-167",
+    "dateOfBirth": "12-10-1982"
+}
+
+###
+POST http://localhost:3001/api/patients HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Jerome Foo",
+    "occupation": "Programmer",
+    "gender": "male",
+    "ssn": "176-761",
+    "dateOfBirth": "poo"
+}
+
+###
+POST http://localhost:3001/api/diagnoses HTTP/1.1
+content-type: application/json
+
+{
+    "code": "K123.45",
+    "name": "Knee overflexion",
+    "latin": "Polvikus ruttumus"
+}
+
+###
+POST http://localhost:3001/api/diagnoses HTTP/1.1
+content-type: application/json
+
+{
+    "code": "Virhe!"
+}
+
+###
+POST http://localhost:3001/api/patients/d2773336-f723-11e9-8f0b-362b9e155667/entries HTTP/1.1
+content-type: application/json
+
+{
+    "code": "Virhe!"
+}
+
+###
+POST http://localhost:3001/api/patients/d2773336-f723-11e9-8f0b-362b9e155667/entries HTTP/1.1
+content-type: application/json
+
+{  
+    "date": "2021-01-01",
+    "type": "OccupationalHealthcare",
+    "specialist": "Ilari Ylä-Surakka",
+    "employerName": "HyPD",
+    "diagnosisCodes": ["Z57.1", "Z74.3", "M51.2"],
+    "description":
+          "Patient mistakenly found himself in a nuclear plant waste site without protection gear. Very minor radiation poisoning. ",
+    "sickLeave": {
+        "startDate": "2021-01-02",
+        "endDate": "2019-01-12"
+    }
+}
+
+###
+POST http://localhost:3001/api/patients/d2773336-f723-11e9-8f0b-362b9e155667/entries HTTP/1.1
+content-type: application/json
+
+{   
+    "date": "2019-10-20",
+    "specialist": "Mickson House",
+    "type": "HealthCheck",
+    "description": "Yearly control visit. All normal.",
+    "healthCheckRating": "1"
+}
